@@ -4,7 +4,7 @@
 
 ## Background
 
-Recently, there [has been](intro link 1) a [lot of](intro link 2) talk about echo chambers and the role that they play in our society. An [echo chamber](wiki def) in social media is essentially when information or ideas are reinforced by transmission and repetition in an enclosed system.
+Recently, there [has been](intro link 1) a [lot of](intro link 2) talk about echo chambers and the role that they play in our society. An [echo chamber](wiki def) is essentially when information or ideas are reinforced by transmission and repetition in an enclosed system.
 
 echoSyndicate was created to solve this problem by making the alternative viewpoint available, essentially breaking the echo chamber. echoSyndicate uses algorithms to dynamically match articles about the same subject, but from differing news sources, and juxtaposes them on the same web page. This ensures that a reader gets both sides of the story, and breaks through the echo chamber.
 
@@ -36,7 +36,7 @@ The average user will interact with the website through a News Feed. This news f
 
 ## Technologies and Technical Challenges
 
-This application will be implemented using a Ruby on Rails backend, a PostgreSQL database, and a React.js frontend. The frontend will leverage a GraphQL to accommodate dynamic querying from the frontend. Our pSQL database will automatically pull new stories using the News API and our hand rolled scrapers and apply algorithms to classify these articles by topic and political leaning, automatically dropping those articles that are no longer relevant.
+This application will be implemented using a Ruby on Rails backend, a PostgreSQL database, and a React.js frontend. The application will leverage GraphQL to support dynamic querying from the frontend. Our pSQL database will automatically pull new stories using the News API and our hand rolled scrapers and apply algorithms to classify these articles by topic and political leaning, automatically dropping those articles that are no longer relevant.
 
 We foresee the following technical challenges:
 
@@ -51,6 +51,6 @@ We foresee the following technical challenges:
 - **Day 2:** Web scraper research and setup
 - **Day 3:** News API integration and article analysis (2 days)
 - **Day 5:** News feed front end (landing page)
-- **Day 6:** News feed political filtering 
+- **Day 6:** News feed political filtering
 - **Day 7:** Bonus Day
 - **Day 8:** Bonus Day
