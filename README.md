@@ -48,10 +48,9 @@ We foresee the following technical challenges:
 ## Timeline
 
 - **Day 1:** Backend setup, learning GraphQL paradigm
-- **Day 2:**
-- **Day 3:**
-- **Day 4:**
-- **Day 5:**
-- **Day 6:**
-- **Day 7:** 
-- **Day 8:**
+- **Day 2:** Web scraper research and setup
+- **Day 3:** News API integration and article analysis (2 days)
+- **Day 5:** News feed front end (landing page)
+- **Day 6:** News feed political filtering 
+- **Day 7:** Bonus Day
+- **Day 8:** Bonus Day
