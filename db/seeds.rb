@@ -18,4 +18,3 @@ Article.create!(
   article_url: "www.foxnews.com",
   description: "Ethan Wan expounds on why he thinks Trump is making America great again",
 )
-Match.create!(first_article_id: 1, second_article_id: 2, score: 5)
