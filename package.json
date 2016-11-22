@@ -1,16 +1,15 @@
 {
-  "name": "fullStack",
+  "name": "EchoSyndicate",
   "version": "1.0.0",
-  "description": "clone of glassdoor.com",
+  "description": "A news aggregator that shows you both sides of a political topic",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/adoundakov/echoSyndicate.git"
   },
   "keywords": [],
-  "author": "Alexander Doundakov, Ethan Wan, and Mike Barile",
+  "author": "Alexander Doundakov, Ethan (Kong) Wan, and Mike Barile",
   "homepage": "https://github.com/adoundakov/echoSyndicate.git",
   "license": "ISC",
   "dependencies": {
@@ -35,5 +34,8 @@
   "engines": {
     "node": "6.2.1",
     "npm": "3.10.9"
+  },
+  "devDependencies": {
+    "webpack-watch-livereload-plugin": "0.0.1"
   }
 }
