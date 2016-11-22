@@ -21,7 +21,7 @@ class Article < ApplicationRecord
     self.keywords = []
     title_arr = self.title.downcase.split(" ")
     title_arr.each do |el|
-      if !@@exclusions.include(el)
+      if !@@exclusions.include?(el)
         self.keywords.push(el)
       end
     end
