@@ -25,6 +25,6 @@ class Article < ApplicationRecord
         self.keywords.push(el)
       end
     end
+    self.keywords = self.keywords.uniq
   end
-  self.keywords.uniq
 end
