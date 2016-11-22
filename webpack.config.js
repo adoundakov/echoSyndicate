@@ -1,8 +1,10 @@
 const path = require('path');
+var WatchLiveReloadPlugin = require('webpack-watch-livereload-plugin');
+//de;ete WatchLiveReloadPlugin if heroku is causing a problem.
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/echo_syndicate.jsx',
+  entry: './frontend/echo.jsx',
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
@@ -22,5 +24,14 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-maps'
+  devtool: 'source-maps',
+  //Delete the plugins below if heroku is causing a problem
+  plugins: [
+        new WatchLiveReloadPlugin({
+            files: [
+                './frontend/**/*.js',
+                './app/assets/stylesheets/**/*.scss'
+            ]
+        }),
+    ]
 };
