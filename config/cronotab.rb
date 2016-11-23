@@ -14,4 +14,4 @@
 # Crono.perform(TestJob).every 2.days, at: '15:30'
 #
 
-Crono.perform(ApplicationJob).every 5.seconds
+Crono.perform(ApplicationJob).every 1.hours

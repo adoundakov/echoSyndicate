@@ -1,4 +1,5 @@
 class Source < ApplicationRecord
+  include HTTParty
   validates :private_name, :public_name, :score, presence: true
 
   has_many :articles,

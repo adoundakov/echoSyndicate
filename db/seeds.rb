@@ -1,20 +1,7 @@
-Source.create!(private_name: "cnn-news", public_name: "CNN", score: -3)
-Source.create!(private_name: "fox-news", public_name: "Fox", score: 3)
-Article.create!(
-  title: "Trump is an asshole!",
-  source_name: "cnn-news",
-  date: "2016-11-22",
-  author: "Mike Barile",
-  image_url: "www.google.com",
-  article_url: "www.cnn.com",
-  description: "Mike Barile expounds on why he thinks Trump is an asshole",
-)
-Article.create!(
-  title: "Trump is great!",
-  source_name: "fox-news",
-  date: "2016-11-22",
-  author: "Ethan Wan",
-  image_url: "www.google.com",
-  article_url: "www.foxnews.com",
-  description: "Ethan Wan expounds on why he thinks Trump is making America great again",
-)
+Source.create!(private_name: "cnn", public_name: "CNN", score: -3)
+Source.create!(private_name: "the-huffington-post", public_name: "The Huffington Post", score: -2)
+Source.create!(private_name: "the-wall-street-journal", public_name: "The Wall Street Journal", score: 2)
+Source.create!(private_name: "the-new-york-times", public_name: "The New York Times", score: -2)
+Source.create!(private_name: "usa-today", public_name: "USA Today", score: 0)
+Source.create!(private_name: "google-news", public_name: "Google News", score: 0)
+Source.create!(private_name: "bbc-news", public_name: "BBC News", score: -1)
