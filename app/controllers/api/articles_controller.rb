@@ -1,7 +1,7 @@
 class Api::ArticlesController < ApplicationController
 
   def index
-    #TBD
+    @articles = Article.all.includes(:source)
   end
 
   def show
@@ -34,8 +34,9 @@ class Api::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :source_name, :date, :author, :image_url, :article_url,
-      :description)
+    params.require(:article).permit(:title, :source_name, :date,
+                                    :author, :image_url, :article_url,
+                                    :description)
   end
 
 end
