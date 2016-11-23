@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Source.create!(private_name: "cnn", public_name: "CNN", score: -3)
+Source.create!(private_name: "the-huffington-post", public_name: "The Huffington Post", score: -2)
+Source.create!(private_name: "the-wall-street-journal", public_name: "The Wall Street Journal", score: 2)
+Source.create!(private_name: "the-new-york-times", public_name: "The New York Times", score: -2)
+Source.create!(private_name: "usa-today", public_name: "USA Today", score: 0)
+Source.create!(private_name: "google-news", public_name: "Google News", score: 0)
+Source.create!(private_name: "bbc-news", public_name: "BBC News", score: -1)
