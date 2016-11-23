@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Prata');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+
+$repred: #E51B23;
+$demblue: #34AAE0;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Prata', serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+button {
+  border-radius: 0px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+header {
+  background-color: black;
+  .header-text {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    font-size: 36px;
+    font-family: 'Bungee Shade', cursive;
+  }
+}
+
+.article-box {
+  display: flex;
+  justify-content: flex-start;
+  .source-side {
+    margin: 0px 10px;
+    .source-img-frame {
+      .source-img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  .article-side {
+    .article-title {
+      font-size: 36px;
+    }
+    .article-author {
+      font-size: 18px;
+    }
+    .article-date {
+      font-size: 14px;
+    }
+    .article-body {
+      font-size: 22px;
+    }
+  }
+}

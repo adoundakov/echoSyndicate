@@ -29,8 +29,8 @@ module.exports = {
   plugins: [
         new WatchLiveReloadPlugin({
             files: [
-                './frontend/**/*.js',
-                './app/assets/stylesheets/**/*.scss'
+                './**/bundle.js',
+                './app/assets/stylesheets/*.scss'
             ]
         }),
     ]
