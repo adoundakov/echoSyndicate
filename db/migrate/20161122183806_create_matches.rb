@@ -7,7 +7,7 @@ class CreateMatches < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_index :matches, [:first_article_id, :second_article_id]
+    add_index :matches, [:first_article_id, :second_article_id], unique: true
     add_index :matches, :second_article_id
   end
 end

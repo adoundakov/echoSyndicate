@@ -53,7 +53,8 @@ class Article < ApplicationRecord
   end
 
   def matches
-    Match.where("first_article_id = #{self.id} OR second_article_id = #{self.id}")
+    Match.where("first_article_id = #{self.id} OR
+                second_article_id = #{self.id}")
   end
 
   protected
