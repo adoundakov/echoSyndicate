@@ -8,6 +8,7 @@
 #  score        :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  logo_url     :string           not null
 #
 
 require 'test_helper'

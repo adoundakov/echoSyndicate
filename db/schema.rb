@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122205127) do
+ActiveRecord::Schema.define(version: 20161128205550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20161122205127) do
     t.integer  "score",             null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["first_article_id", "second_article_id"], name: "index_matches_on_first_article_id_and_second_article_id", using: :btree
+    t.index ["first_article_id", "second_article_id"], name: "index_matches_on_first_article_id_and_second_article_id", unique: true, using: :btree
     t.index ["second_article_id"], name: "index_matches_on_second_article_id", using: :btree
   end
 
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20161122205127) do
     t.integer  "score",        null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "logo_url",     null: false
     t.index ["private_name"], name: "index_sources_on_private_name", unique: true, using: :btree
     t.index ["public_name"], name: "index_sources_on_public_name", unique: true, using: :btree
   end

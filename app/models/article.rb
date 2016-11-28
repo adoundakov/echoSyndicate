@@ -119,7 +119,7 @@ class Article < ApplicationRecord
       puts "Created #{resp['articles'].size} articles for #{resp['source']}"
     end
 
-    # drop articles older than 48 hours
-    Article.where("date < ?", Time.now - 4.days).each(&:destroy)
+    # drop articles older than a week
+    Article.where("date < ?", Time.now - 7.days).each(&:destroy)
   end
 end
