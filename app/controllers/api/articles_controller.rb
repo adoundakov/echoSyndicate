@@ -1,7 +1,9 @@
 class Api::ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all.includes(:source)
+    # @articles = Article.all.includes(:source)
+
+    @pairs = Match.all_matched_articles
   end
 
   def show

@@ -18,10 +18,9 @@ class ApplicationJob < ActiveJob::Base
         article.except!('url', 'urlToImage', 'publishedAt')
         Article.create(article)
       end
-      puts "Created #{resp['articles'].size} articles for #{resp['source']}"
     end
 
     # drop articles older than 48 hours
-    Article.where("date < ?", Time.now - 2.days).each(&:destroy)
+    Article.where("date < ?", Time.now - 4.days).each(&:destroy)
   end
 end
