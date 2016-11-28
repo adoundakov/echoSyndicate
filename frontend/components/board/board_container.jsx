@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import Board from './board';
+import { fetchArticles } from '../../actions/article_actions';
+import { getArticles } from '../../utils/selectors';
 
 const mapStateToProps = (state) => ({
-   articles: state.articles
+   articles: getArticles(state.articles.list)
  });
 
- // const mapDispatchToProps = (dispatch) => ({
- //    fetchArticles: (id)=>{dispatch(fetchArticles(id));}
- // });
- //
+ const mapDispatchToProps = (dispatch) => ({
+    fetchArticles: ()=>{dispatch(fetchArticles());}
+ });
 
- export default connect(mapStateToProps)(Board);
+
+ export default connect(mapStateToProps, mapDispatchToProps)(Board);

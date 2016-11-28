@@ -36,9 +36,27 @@ header {
   }
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-board {
+  width: 80%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .article-box {
   display: flex;
   justify-content: flex-start;
+  margin: 20px 0px;
+
   .source-side {
     margin: 0px 10px;
     .source-img-frame {
@@ -50,14 +68,20 @@ header {
     }
   }
   .article-side {
+    background-color: $demblue;
+    border-radius: 15px;
+    padding: 20px 30px;
     .article-title {
       font-size: 36px;
+      margin: 10px 0px;
     }
     .article-author {
       font-size: 18px;
+      margin-bottom: 5px;
     }
     .article-date {
       font-size: 14px;
+      margin-bottom: 5px;
     }
     .article-body {
       font-size: 22px;
