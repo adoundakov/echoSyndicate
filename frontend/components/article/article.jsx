@@ -1,20 +1,27 @@
 import React from 'react';
 
 class Article extends React.Component {
+  componentWillMount() {
+    console.log(this.props);
+  }
+
   render() {
+    const { title, date, author, image_url, source_name, description, article_url } = this.props;
     return (
       <div className="article-box">
         <div className="source-side">
           <div className="source-img-frame">
-            <img src="https://static01.nyt.com/images/icons/t_logo_291_black.png" className="source-img"/>
+            <img src={image_url} className="source-img"/>
           </div>
         </div>
-        <div className="article-side">
-          <div className="article-title">Title</div>
-          <div className="article-author">Author</div>
-          <div className="article-date">Date</div>
-          <div className="article-body">Body</div>
-        </div>
+        <a href={article_url} target="_blank">
+          <div className="article-side">
+            <div className="article-title">{title}</div>
+            <div className="article-author">By {author}</div>
+            <div className="article-date">{date}</div>
+            <div className="article-body">{description}</div>
+          </div>
+        </a>
       </div>
     );
   }

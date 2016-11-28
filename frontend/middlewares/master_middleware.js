@@ -1,3 +1,4 @@
-import applyMiddleware from 'redux';
+import { applyMiddleware } from 'redux';
+import ArticleMiddleware from './article_middleware';
 
-export default applyMiddleware();
+export default applyMiddleware(ArticleMiddleware);
