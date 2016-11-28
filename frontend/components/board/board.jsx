@@ -9,11 +9,14 @@ class Board extends React.Component {
 
   renderArticles() {
     if (this.props.articles === null) {
-      return (<div>Lodaing...</div>);
+      return (<div>Loading...</div>);
     }
-    const articleList = this.props.articles.map((article, i) => {
-      const { title, author, date, body } = article;
-      return <Article {...article} key={i}/>;
+    const articleList = this.props.articles.map((pair, i) => {
+      const { title, author, date, body } = pair[0];
+      return (<div key={i}>
+        <Article {...pair[0]} pos="left"/>
+        <Article {...pair[1]} pos="right"/>
+      </div>);
     });
     return (<ul>{articleList}</ul>);
   }

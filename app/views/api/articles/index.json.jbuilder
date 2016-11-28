@@ -3,7 +3,9 @@
 # end
 
 json.array! @pairs.each do |pair|
-  json.array! pair.each do |article|
-    json.partial! 'api/articles/article', article: article
+  if pair.size == 2
+    json.array! pair.each do |article|
+      json.partial! 'api/articles/article', article: article
+    end
   end
 end
