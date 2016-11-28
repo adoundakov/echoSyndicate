@@ -2,13 +2,12 @@ import React from 'react';
 
 class Article extends React.Component {
   componentWillMount() {
-    console.log(this.props);
   }
 
   render() {
-    const { title, date, author, image_url, source_name, description, article_url } = this.props;
+    const { title, date, author, image_url, source_name, description, article_url, pos } = this.props;
     return (
-      <div className="article-box">
+      <div className={`article-box-${pos}`}>
         <div className="source-side">
           <div className="source-img-frame">
             <img src={image_url} className="source-img"/>
