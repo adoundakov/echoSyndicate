@@ -8,9 +8,6 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
   plugins:[
     new webpack.DefinePlugin({
       'process.env':{
@@ -23,6 +20,9 @@ module.exports = {
       }
     })
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
