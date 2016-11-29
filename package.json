@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "A news aggregator that shows you both sides of a political topic",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/adoundakov/echoSyndicate.git"
   },
   "keywords": [],
   "author": "Alexander Doundakov, Ethan (Kong) Wan, and Mike Barile",
-  "homepage": "https://github.com/adoundakov/echoSyndicate.git",
+  "homepage": "www.echosyndicate.com",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.5.2",

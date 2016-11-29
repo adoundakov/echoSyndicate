@@ -1,6 +1,6 @@
 const path = require('path');
 var WatchLiveReloadPlugin = require('webpack-watch-livereload-plugin');
-//de;ete WatchLiveReloadPlugin if heroku is causing a problem.
+//delete WatchLiveReloadPlugin if heroku is causing a problem.
 
 module.exports = {
   context: __dirname,
