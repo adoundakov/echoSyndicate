@@ -27,10 +27,10 @@ class Match < ApplicationRecord
 
   def self.all_matched_articles
     matches = []
-    Match.all.shuffle.each do |match|
+    Match.all.reverse.each do |match|
       articles = match.articles
       # ensures that 'liberal' articles are @ first position
-      articles = articles.sort { |art1, art2| art1.score <=> art2.score }
+      articles = articles.sort_by(&:score)
       matches << articles unless already_included?(matches, articles)
     end
 
