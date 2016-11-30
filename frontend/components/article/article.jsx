@@ -20,8 +20,8 @@ class Article extends React.Component {
           </div>
         </div>
         <a href={article_url} target="_blank" className="article-side">
+          { this.renderImage(source_name, image_url) }
           <div className="article-detail">
-            { this.renderImage(source_name, image_url) }
             <div className="article-title">{title}</div>
             <div className="article-author">By {author}</div>
             <div className="article-date">{date}</div>
