@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#root"
   namespace :api, defaults: { format: :json } do
     resources :articles, only: [:index, :show, :update, :destroy, :create]
+    get 'get_articles/:limit/:offset', to: 'articles#get_articles'
   end
 
   mount Crono::Web, at: '/crono'
