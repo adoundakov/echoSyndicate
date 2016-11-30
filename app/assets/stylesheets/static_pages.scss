@@ -12,7 +12,7 @@ $demblue: #34AAE0;
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Prata', serif;
+  font-family: sans-serif;;
 }
 
 body {
@@ -155,19 +155,19 @@ a {
   .article-detail {
     margin-left: 10px;
     .article-title {
-      font-size: 24px;
+      font-size: 26px;
       margin: 10px 0px;
     }
     .article-author {
-      font-size: 15px;
+      font-size: 16px;
       margin-bottom: 5px;
     }
     .article-date {
-      font-size: 12px;
+      font-size: 13px;
       margin-bottom: 5px;
     }
     .article-body {
-      font-size: 15px;
+      font-size: 16px;
       padding-top: 10px;
       padding-bottom: 10px;
     }

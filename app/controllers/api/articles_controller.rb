@@ -4,6 +4,11 @@ class Api::ArticlesController < ApplicationController
     @pairs = Match.all_matched_articles
   end
 
+  def get_articles
+    @pairs = Match.get_matched_articles(params[:limit], params[:offset])
+    render "api/articles/index"
+  end
+
   def show
     @article = Article.find(params[:id])
   end
