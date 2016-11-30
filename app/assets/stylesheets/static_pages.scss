@@ -39,20 +39,30 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 85px;
   .header-text {
     margin-left: 5px;
     text-align: center;
     color: white;
     padding: 15px;
     font-size: 36px;
-    font-family: sans-serif cursive;
+    font-family: pretty-font;
+    font-weight: 300;
+  }
+  a {
+    color: white;
+    font-family: pretty-font, sans-serif;
+    font-weight: 300;
+    position: absolute;
+    right: 20px;
   }
 }
 
 ul {
   padding: 0;
   list-style: none;
+  width: 80%;
+  margin: 0 auto;
 }
 
 a {
@@ -77,6 +87,7 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: #95F1FF;
+    width: 100%;
     border-radius: 15px;
     padding: 20px 20px;
     &:hover {
@@ -96,7 +107,7 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: #FF6765;
-
+    width: 100%;
     border-radius: 15px;
     padding: 20px 20px;
     &:hover {
@@ -137,6 +148,7 @@ a {
     margin-right: auto;
     .article-img {
       max-width: 350px;
+      border-radius: 5px;
       width: auto;
     }
   }

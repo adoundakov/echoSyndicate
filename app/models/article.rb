@@ -101,25 +101,31 @@ class Article < ApplicationRecord
     base_uri = 'http://newsapi.org/v1/articles?'
     key = "&apiKey=#{ENV['NEWS_KEY']}"
     Source.all.each do |src|
-      article_source = "source=#{src.private_name}"
-      resp = HTTParty.get(base_uri + article_source + key)
+      resp = HTTParty.get(base_uri + "source=#{src.private_name}" + key)
 
       # in case News API blows up
-      next if resp['status'].nil? || resp['status'] == 'error'
-      resp['articles'].each do |article|
-        article['source_name'] = resp['source']
-        article['article_url'] = article['url']
-        article['image_url'] = article['urlToImage']
-        article['date'] = article['publishedAt']
+      next unless resp['status'] == 'ok'
 
-        # needed to pass validations, mate API response to DB schema
-        article.except!('url', 'urlToImage', 'publishedAt')
-        Article.create(article)
-      end
+      resp['articles'].each { |article| process_article(resp, article) }
       puts "Created #{resp['articles'].size} articles for #{resp['source']}"
     end
 
     # drop articles older than a week
+    delete_expired_articles
+  end
+
+  def self.process_article(response, article)
+    # needed to pass validations, mate API response structure to DB schema
+    article['source_name'] = response['source']
+    article['article_url'] = article['url']
+    article['image_url'] = article['urlToImage']
+    article['date'] = article['publishedAt']
+
+    article.except!('url', 'urlToImage', 'publishedAt')
+    Article.create(article)
+  end
+
+  def self.delete_expired_articles
     Article.where("date < ?", Time.now - 7.days).each(&:destroy)
   end
 end

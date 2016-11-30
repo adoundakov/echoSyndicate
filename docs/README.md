@@ -6,7 +6,7 @@
 
 Recently, there [has been](intro link 1) a [lot of](intro link 2) talk about echo chambers and the role that they play in our society. An [echo chamber](wiki def) is essentially when information or ideas are reinforced by transmission and repetition in an enclosed system.
 
-echoSyndicate was created to solve this problem by making the alternative viewpoint available, essentially breaking the echo chamber. echoSyndicate uses algorithms to dynamically match articles about the same subject, but from differing news sources, and juxtaposes them on the same web page. This ensures that a reader gets both sides of the story, and breaks through the echo chamber.
+echoSyndicate was created to solve this problem by making the alternative viewpoint available, breaking the echo chamber. echoSyndicate uses an algorithm to dynamically match articles about the same subject, but from differing news sources, and juxtaposes them on the same web page. This ensures that a reader gets both sides of the story, and breaks through the echo chamber.
 
 [intro link 1]: https://www.wired.com/2016/06/facebook-embraces-news-feed-echo-chamber/
 [intro link 2]: https://www.wired.com/2016/11/filter-bubble-destroying-democracy/
