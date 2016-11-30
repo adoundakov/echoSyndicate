@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Prata');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
 
+@font-face {
+  font-family: pretty-font;
+  src: url('https://res.cloudinary.com/dsguwnfdw/raw/upload/v1478195629/Trocchi_l5owf2.otf');
+}
+
 $repred: #E51B23;
 $demblue: #34AAE0;
 
@@ -31,12 +36,17 @@ button {
 
 header {
   background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
   .header-text {
+    margin-left: 5px;
     text-align: center;
     color: white;
     padding: 15px;
     font-size: 36px;
-    font-family: 'Bungee Shade', cursive;
+    font-family: pretty-font
   }
 }
 
@@ -96,7 +106,7 @@ a {
 }
 
 .source-side {
-  margin: 0px 10px;
+  margin: 0px 15px;
   .source-logo-frame {
     background-color: white;
     border-radius: 50%;
@@ -150,4 +160,9 @@ a {
       padding-bottom: 10px;
     }
   }
+}
+
+.logo-image {
+  width: 55px;
+  height: 55px;
 }
