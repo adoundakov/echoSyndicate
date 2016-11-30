@@ -67,8 +67,7 @@ a {
     border-radius: 15px;
     padding: 20px 30px;
     &:hover {
-      outline: 2px solid $repred;
-      outline-offset: 5px;
+      box-shadow: 0px 0px 0px 3px $repred inset;
     }
   }
 }
@@ -85,8 +84,7 @@ a {
     border-radius: 15px;
     padding: 20px 30px;
     &:hover {
-      outline: 2px solid $demblue;
-      outline-offset: 5px;
+      box-shadow: 0px 0px 0px 3px $demblue inset;
     }
   }
 }
