@@ -14,8 +14,6 @@ Echo Syndicate was created to solve this problem by making the alternative viewp
 [intro link 2]: https://www.wired.com/2016/11/filter-bubble-destroying-democracy/
 [wiki def]: https://en.wikipedia.org/wiki/Echo_chamber_(media)
 
-## Features
-
 ### Articles
 
 At a high-level, Echo Syndicate works by taking in raw articles from the Internet, analyzing them using algorithms, and displays them with an alternating color scheme on an infinitely-scrolling page. Clicking on an article takes you to the respective publication's website.
@@ -23,7 +21,7 @@ At a high-level, Echo Syndicate works by taking in raw articles from the Interne
 
 #### Importing New Articles
 
-ES sources its articles from [NewsAPI](www.newsapi.org). We automated the import and analysis process by using a `rake task` set to run every hour. This task pulls the top articles for each source, checks to see if the article already exists in the database, and creates a database entry for each article.
+ES sources its articles from [NewsAPI](www.newsapi.org). We automated the import and analysis process by using a `rake task` set to run every hour. This task uses [HTTParty](https://github.com/jnunemaker/httparty) to pull the top articles for each source, checks to see if the article already exists in the database, and creates a database entry for each article.
 
 ```Ruby
 # in /lib/tasks/scheduler.rake
@@ -70,24 +68,24 @@ end
 ```
 
 The automation for this process is achieved in two different ways:
-  - Running a local server, we use the [Crono](www.github.com) gem and an `ApplicationJob` to run `Article.update` every 60 minutes.
+  - Running a local server, we use the [Crono](www.github.com/plashchynski/crono) gem and an `ApplicationJob` to run `Article.update` every 60 minutes.
   - On Heroku, we use the `Heroku Scheduler` add-on to execute `rake update_articles` every 60 minutes.
-
-> Read more about HTTParty [here](www.github.com)
 
 #### Algorithms and Political Leaning
 
-Echo Syndicate uses NLP to compute the space-time complexity of each article, and the gravitational pull that each article exerts on the HTML5 elements nearest to it, in addition to each author's Zodiac sign to determine political leaning.
-
-**Obviously coming soon**
-
-### Frontend
+**Coming Soon**
 
 #### Displaying Articles
 
-#### ???
+Echo Syndicate utilizes React.js, implementing the Redux design pattern to provide smooth performance. The frontend makes use of an AJAX request to pull matched articles from the Rails API. The Rails server receives this request, instantiates the `ArticlesController` and uses jBuilder to generate an appropriate response as a JSON.
 
-#### Future Directions for Echo Syndicate
+![json screenshot](/docs/screenshots/json.png)
+
+Each article pair is then rendered as a React Component, with styling appropriate to the bias of each respective article.
+
+![article pair](/docs/screenshots/article_match.png)
+
+### Future Directions for Echo Syndicate
 
   - Filters:
     - Users of the site should be able to either search for a title by name or have a category filter to see news stories only about Politics, Technology, Business, etc.
@@ -97,11 +95,11 @@ Echo Syndicate uses NLP to compute the space-time complexity of each article, an
     - Further refine the NLP algorithm to better determine the political leaning of an article.
 
 
-#### Our Team
+### Our Team
 
-| [Alex Doundakov](www.github.com/adoundakov) | [Mike Barile](www.github.com/mikebarile) | [Ethan Kong Wan](www.github.com/ethankong113)|
+| [Alex Doundakov](www.adoundakov.github.io) | [Mike Barile](wwww.mikebarile.com) | [Ethan Kong Wan](www.github.com/ethankong113)|
 |:-------------------------------------------:|:-----------:|:--------------:|
-|![prof-pic](http://placehold.it/100x100)|![prof-pic](http://placehold.it/100x100)|      ![prof-pic](http://placehold.it/100x100)|
+|![prof-pic](http://res.cloudinary.com/adoundakov/image/upload/c_fill,g_face,h_100,w_100/v1479759643/Doundakov_jee5lx.jpg)|![prof-pic](http://res.cloudinary.com/adoundakov/image/upload/c_fill,g_face,w_100/v1480531078/mikeProf_twomwt.jpg)|      ![prof-pic](http://res.cloudinary.com/adoundakov/image/upload/c_fill,g_face,h_100,w_100/v1480531078/ethanProf_uznhzz.jpg)|
 
 #### Feedback
 
