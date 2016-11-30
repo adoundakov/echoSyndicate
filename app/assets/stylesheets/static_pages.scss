@@ -65,11 +65,11 @@ a {
   .article-side {
     display: flex;
     justify-content: space-between;
-    background-color: #98CAE0;
+    background-color: #95F1FF;
     border-radius: 15px;
     padding: 20px 30px;
     &:hover {
-      background-color: lighten(#98CAE0, 8%);
+      background-color: lighten(#95F1FF, 5%);
     }
   }
 }
@@ -84,12 +84,12 @@ a {
   .article-side {
     display: flex;
     justify-content: space-between;
-    background-color: #F46466;
+    background-color: #FF6765;
 
     border-radius: 15px;
     padding: 20px 30px;
     &:hover {
-      background-color: lighten(#F46466, 8%);
+      background-color: lighten(#FF6765, 5%);
     }
   }
 }
