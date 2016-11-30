@@ -6,7 +6,7 @@
 
 Recently, there [has been](intro link 1) a [lot of](intro link 2) talk about echo chambers and the role that they play in our society. An [echo chamber](wiki def) is essentially when information or ideas are reinforced by transmission and repetition in an enclosed system.
 
-echoSyndicate was created to solve this problem by making the alternative viewpoint available, breaking the echo chamber. echoSyndicate uses an algorithm to dynamically match articles about the same subject, but from differing news sources, and juxtaposes them on the same web page. This ensures that a reader gets both sides of the story, and breaks through the echo chamber.
+Echo Syndicate was created to solve this problem by making the alternative viewpoint available, breaking the echo chamber. Echo Syndicate uses an algorithm to dynamically match articles about the same subject, but from differing news sources, and juxtaposes them on the same web page. This ensures that a reader gets both sides of the story, and breaks through the echo chamber.
 
 ![landing page](docs/screenshots/landing_page.png)
 
@@ -77,24 +77,32 @@ The automation for this process is achieved in two different ways:
 
 #### Algorithms and Political Leaning
 
-Echo Syndicate uses NLP to compute the space-time complexity of each article, and the gravitational pull that each article exerts on the HTML5 elements nearest to it, in addition to each author's Zodiac sign to determine politial leaning.
+Echo Syndicate uses NLP to compute the space-time complexity of each article, and the gravitational pull that each article exerts on the HTML5 elements nearest to it, in addition to each author's Zodiac sign to determine political leaning.
 
 **Obviously coming soon**
 
+### Frontend
+
+#### Displaying Articles
+
+#### ???
+
+#### Future Directions for Echo Syndicate
+
+  - Filters:
+    - Users of the site should be able to either search for a title by name or have a category filter to see news stories only about Politics, Technology, Business, etc.
+  - More news sources:
+    - We would like to use hand-rolled web scrapers to add support for those news sources that do not have public APIs (Rush Limbaugh, Sean Hannity, Vox, Slate, etc.).
+  - Better Matching
+    - Further refine the NLP algorithm to better determine the political leaning of an article.
+
+
 #### Our Team
 
-[Alex Doundakov](www.github.com/adoundakov)
-
-![prof-pic](http://placehold.it/100x100)
-
-[Mike Barile](www.github.com/mikebarile)
-
-![prof-pic](http://placehold.it/100x100)
-
-[Ethan Kong Wan](www.github.com/ethankong113)
-
-![prof-pic](http://placehold.it/100x100)
+| [Alex Doundakov](www.github.com/adoundakov) | [Mike Barile](www.github.com/mikebarile) | [Ethan Kong Wan](www.github.com/ethankong113)|
+|:-------------------------------------------:|:-----------:|:--------------:|
+|![prof-pic](http://placehold.it/100x100)|![prof-pic](http://placehold.it/100x100)|      ![prof-pic](http://placehold.it/100x100)|
 
 #### Feedback
 
-Have feedback for he Echo Syndicate team? Drop us an email at echo-syndicate@mailinator.com!
+Have feedback for the Echo Syndicate team? Drop us an email at echo-syndicate@mailinator.com!
