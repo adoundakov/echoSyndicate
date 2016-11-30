@@ -26,13 +26,21 @@ class Match < ApplicationRecord
              class_name: :Article
 
   def self.all_matched_articles
-    matched_articles = []
-    Match.all.each do |match|
-      arts = match.articles
-      matched_articles << arts.sort unless matched_articles.include?(arts.sort)
+    matches = []
+    Match.all.shuffle.each do |match|
+      articles = match.articles
+      # ensures that 'liberal' articles are @ first position
+      articles = articles.sort { |art1, art2| art1.score <=> art2.score }
+      matches << articles unless already_included?(matches, articles)
     end
 
-    matched_articles
+    matches
+  end
+
+  def self.already_included?(matches, articles)
+    matches.any? do |pair|
+      pair[0] == articles[0] || pair[1] == articles[1]
+    end
   end
 
   def not_already_matched
