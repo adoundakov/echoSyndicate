@@ -35,6 +35,16 @@ class Match < ApplicationRecord
     matched_articles
   end
 
+  def self.get_matched_articles(limit, num)
+    matched_articles = []
+    Match.all.limit(limit).offset(num).each do |match|
+      arts = match.articles
+      matched_articles << arts.sort unless matched_articles.include?(arts.sort)
+    end
+
+    matched_articles
+  end
+
   def not_already_matched
     if Match.exists?(["(first_article_id = ? AND second_article_id = ?) OR
                       (first_article_id = ? AND second_article_id = ?)",
