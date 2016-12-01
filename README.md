@@ -1,6 +1,6 @@
 ![header](/docs/screenshots/header.png)
 
-#### [Echo Syndicate live](www.echosyndicate.com)
+#### [Echo Syndicate live](http://www.echosyndicate.com)
 
 ## Description
 
@@ -70,14 +70,14 @@ end
 The automation for this process is achieved in two different ways:
   - Running a local server, we use the [Crono](www.github.com/plashchynski/crono) gem and an `ApplicationJob` to run `Article.update` every 60 minutes.
   - On Heroku, we use the `Heroku Scheduler` add-on to execute `rake update_articles` every 60 minutes.
+  
+#### Article Processing
 
-#### Algorithms and Political Leaning
-
-**Coming Soon**
+Once an article is saved to the `articles` table in the database, a Rails ActiveRecord callback is triggered that generates matches between articles. The callback begins by splitting the title string into an array of words, excepting common words or prepositions. It then queries the database for all articles with an opposite leaning, and creates an entry in the `matches` table only if more than 3 keywords match between articles.
 
 #### Displaying Articles
 
-Echo Syndicate utilizes React.js, implementing the Redux design pattern to provide smooth performance. The frontend makes use of an AJAX request to pull matched articles from the Rails API. The Rails server receives this request, instantiates the `ArticlesController` and uses jBuilder to generate an appropriate response as a JSON.
+Echo Syndicate utilizes React.js, implementing the Redux design pattern to provide smooth performance. The frontend makes use of an AJAX request to pull matched articles from the Rails API. The Rails server receives this request, instantiates the `ArticlesController` and uses jBuilder to generate an appropriate response as a JSON. The `articles_controller#index` action intelligently selects articles to reduce duplicates, and ensure that the same article does not appear too often in the resulting JSON. 
 
 ![json screenshot](/docs/screenshots/json.png)
 
