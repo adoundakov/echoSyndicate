@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import Board from './board';
-import { fetchArticles } from '../../actions/article_actions';
-import { getArticles } from '../../utils/selectors';
+import { fetchArticles, getArticles } from '../../actions/article_actions';
+import { retrieveArticles } from '../../utils/selectors';
 
 const mapStateToProps = (state) => ({
-   articles: getArticles(state.articles.list)
+   articles: retrieveArticles(state.articles.list)
  });
 
  const mapDispatchToProps = (dispatch) => ({
-    fetchArticles: ()=>{dispatch(fetchArticles());}
+    fetchArticles: ()=>{dispatch(fetchArticles());},
+    getArticles: (limit, offset)=>{dispatch(getArticles(limit, offset));}
  });
 
 

@@ -1,6 +1,6 @@
 import { isEmpty } from 'lodash';
 
-export const getArticles = (list) => {
+export const retrieveArticles = (list) => {
   if (list === undefined || list.length === 0) {
     return null;
   }
