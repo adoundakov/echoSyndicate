@@ -11,7 +11,10 @@ const ArticleReducer = (state = _nullArticles, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_ARTICLES:
-      newState = merge({}, state, {list: action.articles});
+      newState = merge({}, state);
+      action.articles.forEach((article)=>{
+        newState.list.push(article);
+      });
       return newState;
     default:
       return state;

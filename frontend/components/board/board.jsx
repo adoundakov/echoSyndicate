@@ -3,8 +3,26 @@ import Article from '../article/article';
 
 class Board extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {offset: 0};
+  }
+
   componentWillMount() {
-    this.props.fetchArticles();
+    this.props.getArticles(3, 0);
+    this.setState({offset: 3});
+  }
+
+  componentDidMount() {
+    $(window).scroll(()=>{
+      let articles = this.refs.board.firstChild.childNodes;
+      let targetScrollY = articles[articles.length - 2].offsetTop;
+      let windowScrollY = window.scrollY;
+      if (windowScrollY > targetScrollY) {
+        this.props.getArticles(3,this.state.offset + 3);
+        this.setState({offset: this.state.offset + 3});
+      }
+    });
   }
 
   renderArticles() {
@@ -23,7 +41,7 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div className="article-board">
+      <div ref="board" className="article-board">
         { this.renderArticles() }
       </div>
     );
