@@ -17,20 +17,24 @@
 #
 
 class Article < ApplicationRecord
-  @@exclusions = [ "about", "above", "across", "after", "against", "along",
-                   "amid", "among", "anti", "around", "as", "at", "before",
-                   "behind", "below", "beneath", "beside", "besides", "between",
-                   "beyond", "but", "by", "concerning", "considering",
-                   "despite", "down", "during", "except", "excepting",
-                   "excluding", "following", "for", "from", "in", "inside",
-                   "into", "like", "minus", "near", "of", "off", "on", "onto",
-                   "opposite", "outside", "over", "past", "per", "plus",
-                   "regarding", "round", "save", "since", "than", "through",
-                   "to", "toward", "towards", "under", "underneath", "unlike",
-                   "until", "up", "upon", "versus", "via", "with", "within",
-                   "without", "a", "an", "the", "this", "that", "these",
-                   "those", "each", "every", "either", "neither", "much",
-                   "enough", "which", "what", "his", "her", "their", "theirs"]
+  @@exclusions = ["about", "above", "across", "after", "against", "along",
+                  "amid", "among", "anti", "around", "are", "an", "as", "at",
+                  "before", "behind", "below", "beneath", "beside", "besides",
+                  "between", "beyond", "but", "by", "concerning",
+                  "considering", "despite", "down", "during", "except",
+                  "excepting", "excluding", "following", "for", "from", "is",
+                  "in", "inside", "into", "like", "minus", "near", "of", "off",
+                  "on", "onto", "opposite", "outside", "over", "past", "per",
+                  "plus", "regarding", "round", "save", "since", "than",
+                  "through", "to", "toward", "towards", "under", "underneath",
+                  "unlike", "until", "up", "upon", "versus", "via", "with",
+                  "within", "without", "a", "an", "the", "this", "that",
+                  "these", "those", "each", "every", "either", "neither",
+                  "much", "enough", "which", "what", "his", "her", "their",
+                  "theirs", "far", "except", "off", "on", "out", "in", '.',
+                  'ahead', 'he', 'she', 'them', 'it', 'ze', 'his', 'hers',
+                  'thiers', 'ours', 'our', 'us', 'zes', 'live', 'watch',
+                  'click', 'you', 'will']
 
   validates :title, :source_name, :date, :author, :image_url, :article_url,
             :description, :keywords, presence: true

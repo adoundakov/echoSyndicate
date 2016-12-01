@@ -28,9 +28,8 @@ class Match < ApplicationRecord
   def self.all_matched_articles
     matches = []
     Match.all.reverse.each do |match|
-      articles = match.articles
       # ensures that 'liberal' articles are @ first position
-      articles = articles.sort_by(&:score)
+      articles = match.articles.sort_by(&:score)
       matches << articles unless already_included?(matches, articles)
     end
 
@@ -44,13 +43,14 @@ class Match < ApplicationRecord
   end
 
   def self.get_matched_articles(limit, num)
-    matched_articles = []
-    Match.all.limit(limit).offset(num).each do |match|
-      arts = match.articles
-      matched_articles << arts.sort unless matched_articles.include?(arts.sort)
+    matches = []
+    Match.all.order(id: :desc).limit(limit).offset(num).each do |match|
+      # ensures that 'liberal' articles are @ first position
+      articles = match.articles.sort_by(&:score)
+      matches << articles unless already_included?(matches, articles)
     end
 
-    matched_articles
+    matches
   end
 
   def not_already_matched
