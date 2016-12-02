@@ -14,12 +14,13 @@ class Board extends React.Component {
   }
 
   componentDidMount() {
-    $(window).scroll(()=>{
+    window.addEventListener('scroll', () => {
       let articles = this.refs.board.firstChild.childNodes;
-      let targetScrollY = articles[articles.length - 2].offsetTop;
-      let windowScrollY = window.scrollY;
-      if (windowScrollY > targetScrollY) {
-        this.props.getArticles(3,this.state.offset + 3);
+      let target = articles[articles.length - 1].offsetTop;
+      let scanner = window.scrollY + window.innerHeight;
+      let status = this.props.status;
+      if (scanner > target && status === "READY") {
+        this.props.getArticles(3,this.state.offset);
         this.setState({offset: this.state.offset + 3});
       }
     });
