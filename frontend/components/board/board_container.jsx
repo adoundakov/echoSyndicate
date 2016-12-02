@@ -4,7 +4,8 @@ import { fetchArticles, getArticles } from '../../actions/article_actions';
 import { retrieveArticles } from '../../utils/selectors';
 
 const mapStateToProps = (state) => ({
-   articles: retrieveArticles(state.articles.list)
+   articles: retrieveArticles(state.articles.list),
+   status: state.articles.status
  });
 
  const mapDispatchToProps = (dispatch) => ({
