@@ -13,7 +13,7 @@
 class Match < ApplicationRecord
   validates :first_article_id, :second_article_id, :score, presence: true
   validates :score, numericality: { greater_than: 2 }
-  validate :not_already_matched
+  validate :not_already_matched, :not_too_many_matches
 
   belongs_to :first_article,
              primary_key: :id,
@@ -25,15 +25,15 @@ class Match < ApplicationRecord
              foreign_key: :second_article_id,
              class_name: :Article
 
-  def self.all_matched_articles
-    matches = []
-    Match.all.reverse.each do |match|
-      # ensures that 'liberal' articles are @ first position
-      articles = match.articles.sort_by(&:score)
-      matches << articles unless already_included?(matches, articles)
-    end
-
-    matches
+  def self.generate_histogram
+    # wasteful, needs to be adapted so this isnt run every time a match is made
+    # can be done as a lazy assignment ||= plus lifecycle methods
+    # also done in controller?
+    articles = Match.all.map { |m| m.articles }.flatten
+    kwds = articles.map(&:keywords).flatten
+    hist = Hash.new(0)
+    kwds.each { |word| hist[word] += 1 }
+    hist
   end
 
   def self.already_included?(matches, articles)
@@ -43,14 +43,13 @@ class Match < ApplicationRecord
   end
 
   def self.get_matched_articles(limit, num)
-    matches = []
-    Match.all.order(id: :desc).limit(limit).offset(num).each do |match|
-      # ensures that 'liberal' articles are @ first position
-      articles = match.articles.sort_by(&:score)
-      matches << articles unless already_included?(matches, articles)
+    matched_articles = []
+    Match.all.limit(limit).offset(num).each do |match|
+      arts = match.articles
+      matched_articles << arts.sort unless matched_articles.include?(arts.sort)
     end
 
-    matches
+    matched_articles
   end
 
   def not_already_matched
@@ -59,6 +58,12 @@ class Match < ApplicationRecord
                       self.first_article_id, self.second_article_id,
                       self.second_article_id, self.first_article_id])
       errors['Match'] << "already exists with this pair of articles"
+    end
+  end
+
+  def not_too_many_matches
+    if self.articles.any? { |art| art.matches.size >= 2 }
+      errors.add(:article, ("has been matched too many times"))
     end
   end
 

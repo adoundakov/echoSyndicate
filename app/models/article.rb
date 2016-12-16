@@ -34,7 +34,7 @@ class Article < ApplicationRecord
                   "theirs", "far", "except", "off", "on", "out", "in", '.',
                   'ahead', 'he', 'she', 'them', 'it', 'ze', 'his', 'hers',
                   'thiers', 'ours', 'our', 'us', 'zes', 'live', 'watch',
-                  'click', 'you', 'will']
+                  'click', 'you', 'will', 'and', 'be', 'because', 'was', 'how']
 
   validates :title, :source_name, :date, :author, :image_url, :article_url,
             :description, :keywords, presence: true
@@ -104,7 +104,7 @@ class Article < ApplicationRecord
   def self.update
     base_uri = 'http://newsapi.org/v1/articles?'
     key = "&apiKey=#{ENV['NEWS_KEY']}"
-    Source.all.each do |src|
+    Source.all.shuffle.each do |src|
       resp = HTTParty.get(base_uri + "source=#{src.private_name}" + key)
 
       # in case News API blows up
